@@ -20,4 +20,25 @@ enum class ColorRGB(val r: Int, val g: Int, val b: Int) {
 
 fun main() {
     println(ColorRGB.BLUE.rgb())
+    println(getMnemonic(Color.BLUE))
+    println(getWarmth(Color.ORANGE))
+}
+
+//  Using when for choosing the right enum value
+fun getMnemonic(color: Color) =
+    when (color) {
+        Color.RED -> "Richard"
+        Color.ORANGE -> "Of"
+        Color.YELLOW -> "York"
+        Color.GREEN -> "Gave"
+        Color.BLUE -> "Battle"
+        Color.INDIGO -> "In"
+        Color.VIOLET -> "Vain"
+    }
+
+// Combining options in one when branch
+fun getWarmth(color: Color) = when (color) {
+    Color.RED, Color.ORANGE, Color.YELLOW -> "warm"
+    Color.GREEN -> "neutral"
+    Color.BLUE, Color.INDIGO, Color.VIOLET -> "cold"
 }
