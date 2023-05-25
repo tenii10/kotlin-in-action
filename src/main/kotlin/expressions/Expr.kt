@@ -20,6 +20,19 @@ fun eval(e: Expr): Int {
     throw IllegalArgumentException("Unknown expression")
 }
 
+fun evalWithWhen(e: Expr): Int =
+    when (e) {
+        is Num ->
+            e.value
+
+        is Sum ->
+            eval(e.right) + eval(e.left)
+
+        else ->
+            throw IllegalArgumentException("Unknown expression")
+    }
+
 fun main() {
     println(eval(Sum(Sum(Num(3), Num(2)), Num(4))))
+    println(evalWithWhen(Sum(Sum(Num(3), Num(2)), Num(4))))
 }
