@@ -7,6 +7,7 @@ fun main() {
     checkPercentage(1)
     // checkPercentage(150)
     println(readNumber(BufferedReader(StringReader("136"))))
+    readNumber2(BufferedReader(StringReader("987")))
 }
 
 fun checkPercentage(percentage: Int) {
@@ -28,4 +29,14 @@ fun readNumber(reader: BufferedReader): Int? {
     } finally {
         reader.close()
     }
+}
+
+// Using try as an expression
+fun readNumber2(reader: BufferedReader) {
+    val number = try {
+        Integer.parseInt(reader.readLine())
+    } catch (e: NumberFormatException) {
+        return
+    }
+    println(number)
 }
