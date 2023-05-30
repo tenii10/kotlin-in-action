@@ -34,9 +34,16 @@ fun reportOperationCount() {
 fun main() {
     performOperation()
     reportOperationCount()
-    performOperation()
-    reportOperationCount()
+
+    println("asdf".lastChar())
 }
 
 // a public static final field in Kotlin
 const val UNIX_LINE_SEPARATOR = "\n"
+
+// extension function:
+// String - Receiver type; this - Receiver object
+fun String.lastChar(): Char = this.get(this.length - 1)
+
+// Receiver object members can be accessed without “this”
+// fun String.lastChar(): Char = get(length - 1)
