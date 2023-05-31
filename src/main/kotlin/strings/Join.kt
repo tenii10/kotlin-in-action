@@ -36,6 +36,12 @@ fun main() {
     reportOperationCount()
 
     println("asdf".lastChar())
+
+    println("Kotlin".lastChar)
+
+    val sb = StringBuilder("Kotlin?")
+    sb.lastChar = '!'
+    println(sb)
 }
 
 // a public static final field in Kotlin
@@ -47,3 +53,14 @@ fun String.lastChar(): Char = this.get(this.length - 1)
 
 // Receiver object members can be accessed without “this”
 // fun String.lastChar(): Char = get(length - 1)
+
+// Declaring an extension property
+val String.lastChar: Char
+    get() = get(length - 1)
+
+//Declaring a mutable extension property
+var StringBuilder.lastChar: Char
+    get() = get(length - 1)
+    set(value: Char) {
+        this.setCharAt(length - 1, value)
+    }
